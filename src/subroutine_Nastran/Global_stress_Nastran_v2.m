@@ -1,0 +1,182 @@
+%% Plot stresses
+
+Case_element_connectivity = Mesh.elementNodes;
+Case_node_cords           = Mesh.nodesCord;
+
+% consider the VAT generates the stress different,
+Nxx = zeros(size(Case_element_connectivity,1),1);
+Nyy = zeros(size(Case_element_connectivity,1),1);
+Nxy = zeros(size(Case_element_connectivity,1),1);
+
+for elem = 1:size(Case_element_connectivity,1)
+    
+    node_labels = Case_element_connectivity(elem,:);
+    
+    % center node coordinate
+    
+    Element_center_X = sum( Case_node_cords(node_labels,2))/length(node_labels);
+    Element_center_Y = sum( Case_node_cords(node_labels,3))/length(node_labels);
+    
+    element_center_pnts(elem,:) = [Element_center_X Element_center_Y];
+    
+    physical_length = Plate.length;
+    center = [Plate.length Plate.width]/2;
+    
+   
+    for layer = 1:size(VAT.LXY,1)
+        
+        % cords = [abs(Element_center_X-center(1)) abs(Element_center_Y-center(2))];
+        % 
+        % theta(layer) = VAT_fiber_ply_angle_Lagrangian_2D(cords,VAT,layer);
+
+        phi   =  VAT.LXY(layer,1);
+        T0    =  VAT.LXY(layer,2);
+        T1    =  VAT.LXY(layer,3);
+        theta(layer) =  VAT_fiber_ply_angle_1D_rotate(T0,T1,Element_center_X,Element_center_Y,center,physical_length,phi);
+        
+        
+        m = cosd(theta(layer));
+        n = sind(theta(layer));
+        
+        TmatrixGlobal2Local = [m^2 n^2 2*m*n;
+            n^2 m^2 -2*m*n;
+            -m*n m*n m^2-n^2]; % global to local
+        
+        TmatrixLocal2Global = inv(TmatrixGlobal2Local);
+        
+        
+        stressLocal = Inplane_stress(elem,:,layer)';
+        
+        stressGlobal = TmatrixLocal2Global*stressLocal;
+        
+        
+        Nxx(elem) =   Nxx(elem) +  stressGlobal(1)*Laminate.layer_thickness(layer);
+        Nyy(elem) =   Nyy(elem) +  stressGlobal(2)*Laminate.layer_thickness(layer);
+        Nxy(elem) =   Nxy(elem) +  stressGlobal(3)*Laminate.layer_thickness(layer);
+        
+    end
+
+end
+
+
+for elem = 1:size(Case_element_connectivity,1)
+    
+    node_labels = Case_element_connectivity(elem,:);
+    
+    % center node coordinate
+    
+    Element_center_X(elem) = sum( Case_node_cords(node_labels,2))/length(node_labels);
+    Element_center_Y(elem) = sum( Case_node_cords(node_labels,3))/length(node_labels);
+end
+
+
+
+Xcoord = Case_node_cords(:,2);
+Ycoord = Case_node_cords(:,3);
+dx=min(Xcoord):(max(Xcoord)-min(Xcoord))/50:max(Xcoord);
+dy=min(Ycoord):(max(Ycoord)-min(Ycoord))/50:max(Ycoord);
+[x3,y3]=meshgrid(dx,dy);
+
+
+figure('Color', 'w');
+subplot(1,3,1)
+z3_1 =  griddata(Element_center_X,Element_center_Y ,-Nxx,x3,y3,'v4');
+
+surf(x3,y3,z3_1,'FaceColor','interp','EdgeColor','none','FaceLighting','phong');
+view(2);
+colormap(coolwarm(30));
+colorbar('fontsize',20);
+axis image;
+set(gca, 'FontSize', 20);
+
+
+subplot(1,3,2)
+z3_2 =  griddata(Element_center_X,Element_center_Y, -Nyy,x3,y3,'v4');
+
+surf(x3,y3,z3_2,'FaceColor','interp',...
+    'EdgeColor','none',...
+    'FaceLighting','phong');view(2);
+view(2);
+colormap(coolwarm(30));
+colorbar('fontsize',20);
+axis image;
+set(gca, 'FontSize', 20);
+% title('In-plane stress resultants - Global Co-ordinate, N_{XX}, N_{YY}, N_{XY} (N/m)');
+
+
+subplot(1,3,3)
+z3_3 =  griddata(Element_center_X,Element_center_Y, -Nxy,x3,y3,'v4');
+
+surf(x3,y3,z3_3,'FaceColor','interp',...
+    'EdgeColor','none',...
+    'FaceLighting','phong');view(2);
+view(2);
+colormap(coolwarm(30));
+colorbar('fontsize',20);
+axis image;
+set(gca, 'FontSize', 20);
+
+
+% Set the figure size (in pixels)
+width = 2000; % Desired width in pixels
+height = 1000; % Desired height in pixels
+set(gcf, 'PaperPositionMode', 'auto');
+set(gcf, 'Position', [0 0 width height]);
+
+export_fig Global_Stress_Plot
+
+
+% %% integrate stress over thickness to get the material coordinates
+% 
+% NXX = zeros(1,size(Mesh.elementNodes,1));
+% NYY = zeros(1,size(Mesh.elementNodes,1));
+% NXY = zeros(1,size(Mesh.elementNodes,1));
+% 
+% for elem = 1:size(Mesh.elementNodes,1)
+% 
+% 
+%     for layer = 1:length(Laminate.layer_thickness)
+% 
+% 
+%         NXX(elem) = NXX(elem) + Laminate.layer_thickness(layer)*stressLocal(elem,1,layer);
+%         NYY(elem) = NYY(elem) + Laminate.layer_thickness(layer)*stressLocal(elem,2,layer);
+%         NXY(elem) = NXY(elem) + Laminate.layer_thickness(layer)*stressLocal(elem,3,layer);
+% 
+%     end
+% 
+% 
+% end
+% 
+% 
+% 
+% figure;
+% subplot(1,3,1)
+% z3 =  griddata(centerX,centerY, NXX,x3,y3,'v4');
+% 
+% surf(x3,y3,z3,'FaceColor','interp',...
+%     'EdgeColor','none',...
+%     'FaceLighting','phong');view(2);
+% colormap(coolwarm(30));view(2);
+% colorbar;axis image;
+% 
+% 
+% subplot(1,3,2)
+% z3 =  griddata(centerX,centerY, NYY,x3,y3,'v4');
+% 
+% surf(x3,y3,z3,'FaceColor','interp',...
+%     'EdgeColor','none',...
+%     'FaceLighting','phong');view(2);
+% colormap(coolwarm(30));view(2);
+% colorbar;axis image;
+% title('In-plane stress resultants - Material Co-ordinate, N_{XX}, N_{YY}, N_{XY} (N/m)');
+% 
+% 
+% subplot(1,3,3)
+% z3 =  griddata(centerX,centerY, NXY,x3,y3,'v4');
+% 
+% surf(x3,y3,z3,'FaceColor','interp',...
+%     'EdgeColor','none',...
+%     'FaceLighting','phong');view(2);
+% colormap(coolwarm(30));view(2);
+% colorbar;axis image;
+% axis image;

@@ -1,76 +1,52 @@
-# Pixel-to-Mesh-VAT-Vibration
-Pixel to mesh modeling approach for VAT laminates
+# Pixel-to-Mesh Modeling for Tow-Steered Composite Laminates
 
+This repository contains the source code associated with the paper:
 
-# Pixel-to-Mesh Modeling of Tow-Steered Composite Laminates
+"Vibration Analysis of Tow-steered Composite Laminates using Pixel-to-Mesh Modeling"
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+## Authors
+Md Raqibul Hasan Prince
 
-Source code associated with:
+Soumik Dutta
 
-**Vibration Analysis of Tow-steered Composite Laminates using Pixel-to-Mesh Modeling**
-
-Md Raqibul Hasan Prince, Soumik Dutta, and Wei Zhao  
-Oklahoma State University
+Wei Zhao
 
 ## Overview
+The code implements the pixel-to-mesh modeling framework for
+tow-steered composite laminates manufactured using automated fiber placement.
 
-This repository contains the source code and example models for the
-pixel-to-mesh modeling framework developed for automated-fiber-placement
-(AFP) manufactured tow-steered composite laminates.
+The major steps include:
 
-In the proposed approach, each individual deposited tow is represented
-using a binary image on a common pixel grid. Each pixel corresponds
-directly to one finite element.
+1. Construction of individual tow geometries
+2. Generation of binary tow images
+3. One-to-one pixel-to-finite-element assignment
+4. Identification of gap, normal-layup, and overlap regions
+5. Assignment of local fiber-path orientations and laminate properties
+6. Generation of finite-element input models
+7. Reproduction of selected vibration-analysis examples
 
-For each tow:
+## Requirements
+MATLAB R2024b above
 
-- `1` indicates that the tow occupies the corresponding pixel/element.
-- `0` indicates that no material from that tow occupies the
-  corresponding pixel/element.
-- The local fiber-path orientation of the tow is stored for each
-  occupied element.
+MSC NASTRAN [2023]
 
-The contributions from all deposited tows are accumulated for each ply.
+## Reproducing the Results
 
-An element containing:
+To reproduce the results presented in the paper, run the corresponding example scripts in the `examples/` directory. Each example provides the model setup and analysis workflow for a case examined in the paper.
 
-- no tow in a ply is classified as a gap;
-- one tow is classified as normal layup;
-- two or more tows is classified as an overlap.
 
-Overlapping tows are retained as separate material layers according to
-their deposition sequence, including their corresponding local
-fiber-path orientations and ply thicknesses.
+## License
+MIT License
 
-The resulting element-wise laminate definitions are exported for
-finite element analysis.
+## Citation
 
-## Main capabilities
+If you use this code in your research, please cite the software using the following BibTeX entry:
 
-The repository implements:
-
-1. Variable-angle fiber-path generation
-2. Individual tow geometry construction
-3. Multiple-tow AFP course generation
-4. Tow-overlap modeling
-5. Tow-drop and cut/restart modeling
-6. Binary-image generation for individual tows
-7. One-to-one pixel-to-finite-element assignment
-8. Element-wise tow accumulation
-9. Gap/normal-layup/overlap identification
-10. Local fiber-orientation assignment
-11. Element-wise laminate construction
-12. Finite element model generation
-13. MSC NASTRAN model export
-14. Modal-result postprocessing
-
-## Repository structure
-
-```text
-src/          Core pixel-to-mesh source code
-examples/     Cases corresponding to the manuscript
-data/         Material properties and reference results
-configs/      Input parameters for manuscript cases
-results/      Generated results (not required source files)
-docs/         Detailed methodology and reproduction documentation
+```bibtex
+@software{Prince_Pixel_to_Mesh,
+  author  = {Prince, Md Raqibul Hasan and Dutta, Soumik and Zhao, Wei},
+  title   = {Pixel-to-Mesh Modeling for Tow-Steered Composite Laminates},
+  license = {MIT},
+  url     = {https://github.com/zhaowei0566/Pixel-to-Mesh-VAT-Model}
+}
+```

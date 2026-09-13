@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite this repository."
+type: software
+title: "Pixel-to-Mesh Modeling for Tow-Steered Composite Laminates"
+
+authors:
+  - family-names: "Prince"
+    given-names: "Md Raqibul Hasan"
+  - family-names: "Dutta"
+    given-names: "Soumik"
+  - family-names: "Zhao"
+    given-names: "Wei"
+
+repository-code: "https://github.com/zhaowei0566/Pixel-to-Mesh-VAT-Model"
+license: MIT
+
+abstract: >-
+  Source code for pixel-to-mesh modeling of tow-steered composite
+  laminates manufactured using automated fiber placement.
+  The framework maps individual tow images to finite elements,
+  preserving local fiber orientations and the stacking sequence
+  in gap and overlap regions for vibration analysis.
+
+keywords:
+  - Composite laminates
+  - Automated fiber placement
+  - Tow steering
+  - Pixel-to-mesh modeling
+  - Finite element analysis
+  - Vibration analysis
