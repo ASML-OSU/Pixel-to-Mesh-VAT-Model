@@ -1,0 +1,171 @@
+MSC Nastran V2023.3 (Intel Windows 10 Enterprise 6.2 9200) Control File: 
+----------------------------------------------------------------- 
+$ sysfield=SCR*(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[2])
+$ sysfield=DBALL(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[3])
+Nastran BUFFSIZE=65537 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[6])
+JID='M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\sol103_free.bdf'
+OUT='./sol103_free'
+MEM=65390MB      $ 
+PMEM=estimate
+MACH='Intel'
+OPER='Windows 10 Enterprise'
+OSV='6.2 9200'
+MODEL='Intel(R) Core(TM) i9-10940X CP (MAE-WZ-ES332)'
+NPROC='28'
+CONFIG=6
+NPROC=28
+symbol=DELDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/del' $(program default)
+symbol=DEMODIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/demo' $(program default)
+symbol=LM_NO_SNMP=1 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[10])
+symbol=MKL_INTERFACE_LAYER=ILP64 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[1])
+symbol=SSSALTERDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/sssalter' $(program default)
+symbol=TPLDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/tpl' $(program default)
+SDIR='c:/scratch/sol103_free.T40396_11'
+DBS='c:/scratch/sol103_free.T40396_11'
+SCR='yes'
+SMEM=100
+BPOOL=16347.6MB
+DMPMEM=estimate
+NEWDEL='c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/sss'
+DEL='MSCDEF'
+SPOTWELD=''
+DML=MSCDEF
+SDL=MSCDEF
+AUTH='27500@mae-ls.ad.okstate.edu'
+AUTHQUE=20
+MSGCAT='c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/analysis.msg'
+MSGDEST='f06'
+NEWS='c:/msc.software/msc_nastran/2023.3/msc20233/nast/news.txt'
+----------------------------------------------------------------- 
+MSC_ISHELLPATH=C:\MSC.Software\MSC_Nastran\2023.3\msc20233\actran\win64\Actran_2023.1\bin;C:\MSC.Software\MSC_Nastran\2023.3\msc20233\nast; 
+MSC_JIDPATH= 
+PATH=c:\msc.software\msc_nastran\2023.3\msc20233\win64i8;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\nvidia;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\intel\bin64;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\lib;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8;E:\MATLAB\R2024b\bin\win64;C:\MSC.Software\Patran_x64\20234\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\libnvvp;C:\SIMULIA\Commands;C:\Program Files\Microsoft MPI\Bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;E:\MATLAB\R2024b\bin;C:\Program Files\MiKTeX\miktex\bin\x64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Wolfram Research\WolframScript\;C:\Program Files\dotnet\;C:\Program Files\MATLAB\MATLAB Runtime\v911\runtime\win64;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\NASTRAN-95\bin;C:\msys64\mingw64\bin;C:\Users\wzhao\AppData\Local\Programs\Python\Python310;C:\Users\wzhao\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.4.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\bin\Hostx64\x64;C:\Program Files\Wolfram Research\WolframScript\;C:\tomlab\shared;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\ZAERODemo\;C:\Users\wzhao\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;C:\ProgramData\wzhao\GitHubDesktop\bin;C:\Users\wzhao\AppData\Local\GitHubDesktop\bin;C:\Users\wzhao\AppData\Local\gitkraken\bin;C:\NASTRAN-95\bin;C:\Users\wzhao\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Users\wzhao\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\wzhao\AppData\Local\Programs\Python\Python310;C:\Users\wzhao\AppData\Local\Pandoc\;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\bin\Hostx64\x64;C:\Users\wzhao\Documents\calculX\CL32-win32bit\CL32-win32\bin\cgx25;C:\Users\wzhao\.dotnet\tools 
+SCA_SERVICE_CATALOG=c:\msc.software\msc_nastran\2023.3\msc20233\res\SCAServiceCatalog.xml 
+SCA_RESOURCE_DIR=c:\msc.software\msc_nastran\2023.3\msc20233\res 
+Cmd Line:    C:\MSC.Software\MSC_Nastran\2023.3\msc20233\win64i8\nastran.exe sol103_free.bdf 
+Current Dir: M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300 
+Time Cmd:    c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\msctime 
+Executable:  c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\analysis.exe 
+Arch= Kywd:  [Not specified]  
+MSC_MSG:     stderr  
+FPE:         yes  
+----------------------------------------------------------------- 
+Current resource limits:
+ Physical memory:                   130781 MB
+ Physical memory available:          87949 MB
+ Paging file size:                  150237 MB
+ Paging file size available:        105573 MB
+ Virtual memory:                 134217727 MB
+ Virtual memory available:       134213509 MB
+----------------------------------------------------------------- 
+System configuration:
+ Hostname:         MAE-WZ-ES332.ad.okstate.edu
+ Architecture:     win64i8
+ Platform:         Intel Windows 10 Enterprise 6.2 9200 (Windows Compute Cluster)
+ Model:            Intel(R) Core(TM) i9-10940X CP
+ Clock freq.:      3567 MHz
+ Number of CPUs:   28
+ Number of CPUs:   0 ( limited by PBS )
+ Executable:       standard
+ Raw model ID:     6
+ Config number:    6
+ Physical memory:  130781 MB
+ Virtual memory:   150237 MB
+ Numeric format:   64-bit little-endian IEEE.
+ Bytes per word:   8
+ Disk block size:  512 bytes (64 words)
+ Remote shell cmd: "c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/mscrmtcmd.exe" (Windows non-CCS nodes, UNIX)
+                   <ccs_cmd> (Windows CCS nodes)
+----------------------------------------------------------------- 
+MSC Nastran started  Thu Sep 10 19:35:17 CDT 2026 
+ 19:35:20  Beginning Analysis
+SCA Kernel 29.0.926180 successfully initialized
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\libimalloc.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_core.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_intel_thread.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_rt.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\MSCblas.dll" has been loaded.
+
+ 19:35:23  MSC Authorization Information - System Attributes (1004, 0)
+ 19:35:23  -----------------------------------------------------------
+  Date:          Thu Sep 10 19:35:23 2026
+  MSC Id:        b04f13058cf3 (ethernet) (Intel)
+  Hostname:      MAE-WZ-ES332 (user wzhao, display MAE-WZ-ES332)
+  License files: 27500@mae-ls.ad.okstate.edu
+  CEID:          5DC66406-B49BBD2F
+  User:          wzhao
+  Display:       MAE-WZ-ES332
+  LAPI Version:  LAPI 11.0.1 (CL 920189) (FLEXlm 11.16.3.0)
+
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+  * *                                 * *
+  * *   MSC Customer Entitlement ID   * *
+  * *        5DC66406-B49BBD2F        * *
+  * *                                 * *
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+
+ 19:35:23  MSC Authorization Information - Checkout Successful (1016, 0)
+ 19:35:23  -------------------------------------------------------------
+ 19:35:23  Acquired 1 license for MSC Nastran from license server on host mae-ls.ad.okstate.edu
+
+
+Beginning bulk data processing using the IFPStar component.
+For more information on IFPStar, please see KB article KB8019200
+on our support pages, at http://simcompanion.hexagon.com.
+
+ 19:35:24  Reading INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\PCOMP.DAT"
+ 19:35:26  1409348 records read from INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\PCOMP.DAT"
+ 19:35:26  Reading INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\CQUAD4.DAT"
+ 19:35:26  120000 records read from INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\CQUAD4.DAT"
+ 19:35:26  Reading INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\GRID.DAT"
+ 19:35:27  120702 records read from INCLUDE file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\GRID.DAT"
+ 19:35:27  66 records read from JID file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\sol103_free.bdf"
+ 19:35:27  A total of 1650116 records were read from 4 files.
+
+Processing of bulk data entries is complete.
+
+ 19:35:40  Finite element model generation started.
+ 19:35:43  Finite element model generated 724206 degrees of freedom.
+ 19:35:43  Finite element model generation successfully completed.
+ 19:35:43  Application of Loads and Boundary Conditions to the finite element model started.
+ 19:35:43  Application of Loads and Boundary Conditions to the finite element model successfully completed.
+ 19:35:44  Solution of the system equations for normal modes started.
+ 19:36:31  Solution of the system equations for normal modes successfully completed.
+ 19:37:18  Normal modes analysis completed.
+ 19:37:19  20 records read from JID file "M:\c_users_wzhao_documents\GitHub\Pixel-to-Mesh-VAT-Model\examples\experiment_tow_gap\NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF_x_400_y_300\sol103_free.bdf"
+ 19:37:19  NSEXIT: EXIT(0)
+ 19:37:19  Analysis complete  0
+Real:      118.889 seconds ( 0:01:58.889)
+User:       80.718 seconds ( 0:01:20.718)
+Sys:        33.656 seconds ( 0:00:33.656)
+ ==================================================
+ OS:                           6.2
+ OEM ID:                       9
+ Model:                        Intel(R) Core(TM) i9-10940X CPU @ 3.30GHz  
+ Number of processors:         28
+ Page size:                    4096
+ Processor type:               8664
+ Minimum application address:  10000
+ Maximum application address:  fffeffff
+ Active processor mask:        268435455
+ Nsocket:                      1
+ Ncore:                        14  ( 1 X 14 )
+ HyperThreading:               On
+ Ram:                          130781 Mb
+ ==================================================
+ Time Summary                 CPU       Wall   ( Time in Seconds )
+ Input File                  12.9         13 
+ Stiffness Generation         2.7          3 
+ Eigenvalue                  47.7         47 
+ Miscellaneous               49.7         52 
+ -------------------------------------------
+ Total:                     113.0        115 
+ ==================================================
+ Consider using SOLVE=AUTO if you have not.
+ =====================================================
+ Detailed performance information can be found in the 
+ "MSC Nastran High Performance Computing User's Guide"
+ =====================================================
+MSC Nastran finished Thu Sep 10 19:37:20 CDT 2026 
