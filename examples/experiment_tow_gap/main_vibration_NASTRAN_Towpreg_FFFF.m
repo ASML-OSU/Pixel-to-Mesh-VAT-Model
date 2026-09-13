@@ -20,8 +20,8 @@ Plate.length =0.4;
 
 Plate.width = 0.3;
 
-mesh_number_x = 1*40;
-mesh_number_y = 1*30;
+mesh_number_x = 10*40;
+mesh_number_y = 10*30;
 
 design_folder = ['NASTRAN_Z0_MIN_analysis_SOL103_VAT_TowpregWiseModel_FFFF' '_x_' num2str(mesh_number_x) '_y_' num2str(mesh_number_y)];
 %% Generate plate mesh
