@@ -34,6 +34,7 @@ MSC NASTRAN [2023]
 
 To reproduce the results presented in the paper, run the corresponding example scripts in the `examples/` directory. Each example provides the model setup and analysis workflow for a case examined in the paper.
 
+The current code is provided specifically to reproduce the examples presented in the paper. For questions about the code or its application to other cases, please contact the principal investigator, Dr. Wei Zhao, at [wzhao@okstate.edu](mailto:wzhao@okstate.edu).
 
 ## License
 MIT License
